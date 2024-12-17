@@ -7,9 +7,8 @@ from sklearn.metrics import accuracy_score, classification_report
 from sklearn.preprocessing import LabelEncoder
 
 # Load and preprocess the dataset
-@st.cache_data
 def load_data():
-    data = pd.read_csv('ProcessedCopperSet.csv')
+    data = pd.read_csv('ProcessedCopperSet.csv')  # Path to your cleaned CSV file
     label_encoder = LabelEncoder()
     data['status'] = label_encoder.fit_transform(data['status'])  # Convert WON/LOST to 1/0
     data['item_type'] = label_encoder.fit_transform(data['item_type'])  # Convert categorical to numerical
